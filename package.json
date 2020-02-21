@@ -1,6 +1,7 @@
 {
   "name": "tdd-app",
   "version": "0.1.0",
+  "homepage": "https://sabeq96.github.io/tdd-antd-cra",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
