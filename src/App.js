@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import 'antd/dist/antd.css';
-import Authors from './pages/Authors';
+import UsersList from './pages/Users/List';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Authors} />
+        <Route path="/" component={UsersList} />
       </Switch>
     </Router>
   );

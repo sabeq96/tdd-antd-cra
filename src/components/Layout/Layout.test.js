@@ -1,9 +1,6 @@
-import '@testing-library/jest-dom/extend-expect'
-// NOTE: jest-dom adds handy assertions to Jest and is recommended, but not required
-
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom';
-import {render, fireEvent} from '@testing-library/react'
+import { mount } from 'enzyme';
 
 import Layout from './index';
 
@@ -16,22 +13,25 @@ const component = (path) => (
   </MemoryRouter>
 );
 
-test('shows children', () => {
-  const { queryByText } = render(component('/authors'));
+describe('<Layout />', () => {
+  it('renders children', () => {
+    const wrapper = mount(component('/authors'));
 
-  expect(queryByText(childrenText)).not.toBeNull();
-});
+    expect(wrapper.find('.e2e-container').text()).toBe(childrenText);
+  });
 
-test('change current selected menu item based on location', () => {
-  const { container } = render(component('/books'));
+  it('change current selected menu item based on location', () => {
+    const wrapper = mount(component('/books'));
+  
+    expect(wrapper.find('.ant-menu-item-selected').text()).toBe('Books');
+  });
 
-  expect(container.querySelector('.ant-menu-item-selected').textContent).toBe('Books');
-});
+  it('change current selected menu by click', async () => {
+    const wrapper = mount(component('/authors'));
+    const bookItem = () => wrapper.find('.e2e-menu-item').last();
+  
+    bookItem().simulate('click');
 
-test('change current selected menu by click', () => {
-  const { queryByText, container } = render(component('/authors'));
-
-  fireEvent.click(queryByText('Books'));
-
-  expect(container.querySelector('.ant-menu-item-selected').textContent).toBe('Books');
+    expect(bookItem().hasClass('ant-menu-item-selected')).toBe(true);
+  });
 });

@@ -1,8 +1,8 @@
 
-import React, { Suspense } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
-import { Layout, Menu, Spin } from 'antd';
+import { Layout, Menu } from 'antd';
 const { Header, Content, Footer } = Layout;
 
 const menu = [
@@ -26,15 +26,16 @@ export default ({ children }) => {
           mode="horizontal"
           style={{ lineHeight: '64px' }}
           defaultSelectedKeys={[currentKey]}
+          selectedKeys={[currentKey]}
           onClick={handleRouteChange}
         >
           {menu.map(({ key, text }) => (
-            <Menu.Item key={key}>{text}</Menu.Item>
+            <Menu.Item key={key} className="e2e-menu-item">{text}</Menu.Item>
           ))}
         </Menu>
       </Header>
       <Content>
-        <div style={{ padding: '48px' }}>
+        <div style={{ padding: '48px' }} className="e2e-container">
           {children}
         </div>
       </Content>
