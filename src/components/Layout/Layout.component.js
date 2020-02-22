@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom";
 
 import { Layout, Menu } from 'antd';
@@ -35,7 +35,7 @@ export default ({ children }) => {
         </Menu>
       </Header>
       <Content>
-        <div style={{ padding: '48px' }} className="e2e-container">
+        <div style={{ padding: '48px', minHeight: 'calc(100vh - 64px - 69px)' }} className="e2e-container">
           {children}
         </div>
       </Content>

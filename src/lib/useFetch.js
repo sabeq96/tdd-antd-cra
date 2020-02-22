@@ -9,7 +9,7 @@ const handleSortValues = (s) => !s.order ? {} : { _order: sortMapper[s.order], _
 const handlePaginationValues = (p) => ({ _page: p.current, _limit: p.pageSize });
 const toQueryString = (params, mappings) => map(params, (p, k) => `${k}${mappings[k] || '='}${p}`).join('&');
 
-export const useFetch = (source, { filters, pagination, sorter }, mappings) => {
+export const useFetch = (source, { filters = {}, pagination = {}, sorter = {} } = {}, mappings = {}) => {
   const [data, setData] = React.useState(null);
   const [loading, setIsLoading] = React.useState(false);
 

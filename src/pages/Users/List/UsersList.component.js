@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 import { Table, Descriptions, Tag, Input, Button, Row, Col, Card } from 'antd';
+import { randomArrayItem } from '../../../lib/random';
+
 const { Item } = Descriptions;
 
 const columns = [
@@ -51,7 +53,7 @@ const tagColors = ['geekblue', 'green', 'volcano', 'yellow'];
 const RandomCompanyBadge = ({ bs }) => (
   <div>
     {bs.split(' ').map((el, i) => (
-      <Tag color={tagColors[Math.floor(Math.random() * tagColors.length)]} key={i}>
+      <Tag color={randomArrayItem(tagColors)} key={i}>
         {el}
       </Tag>
     ))}

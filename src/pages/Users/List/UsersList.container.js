@@ -3,9 +3,9 @@ import React from 'react';
 import UsersListPage from './UsersList.component';
 import Layout from '../../../components/Layout';
 
-import { useFetch } from '../../../useFetch';
+import { useFetch } from '../../../lib/useFetch';
 
-const mappings = { username: '_like=', email: '_like='}
+const mappings = { username: '_like=', email: '_like=' }
 
 export default () => {
   const [filters, setFilters] = React.useState({});
