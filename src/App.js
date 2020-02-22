@@ -6,7 +6,7 @@ import UsersList from './pages/Users/List';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/tdd-antd-cra">
       <Switch>
         <Route path="/" component={UsersList} />
       </Switch>
